@@ -1,0 +1,32 @@
+/* Reusable colors */
+:root {
+    --background-color: rgb(25, 25, 25);
+    --section-bg-color: rgb(36, 36, 36);
+    --text-color: rgb(120, 63, 197);
+}
+
+a {
+    color: rgb(230, 230, 230);
+}
+
+body {
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation bar section */
+
+/* Header section */
+
+/* About section */
+
+/* Services section */
+
+/* Team section */
+
+/* Testimonials section */
+
+/* Contact section */
+
+/* Footer section */
