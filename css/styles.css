@@ -2,11 +2,12 @@
 :root {
     --background-color: rgb(25, 25, 25);
     --section-bg-color: rgb(36, 36, 36);
-    --text-color: rgb(120, 63, 197);
+    --highlight: rgb(120, 63, 197);
+    --text: rgb(230, 230, 230);
 }
 
 a {
-    color: rgb(230, 230, 230);
+    color: var(--text)
 }
 
 body {
@@ -23,7 +24,8 @@ section {
     max-width: 100%;
     min-height: 100vh;
     /* border: 1px solid red; */
-    padding: 1rem 0 ;
+    /* padding: 1rem 0 ; */
+    position: relative;
 }
 
 #about, #team, #contact {
@@ -34,7 +36,7 @@ section {
     width: 100%;
     text-align: center;
     align-items: center;
-    color: var(--text-color);
+    color: var(--highlight);
     /* padding: .5rem; */
 }
 
@@ -91,7 +93,7 @@ header {
 
 
 
-/* Testimonials section */
+
 
 .card{
     width: 290px;
@@ -101,9 +103,9 @@ header {
     align-items: center;
     text-align: center;
     padding: 20px;
-    border: 1px solid var(--text-color);
+    border: 1px solid var(--highlight);
     background-color: var(--background-color);
-    color: rgb(230, 230, 230);
+    color: var(--text);
     /* overflow: */
     /* box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px; */
 }
@@ -128,28 +130,162 @@ header {
     /* border: 1px solid orange; */
 }
 
+
+/* Testimonials section */
+  
+  .testimonies {
+    overflow: hidden;
+    padding: 60px 0;
+    background: var(--background-color);
+    white-space: nowrap;
+    position: relative;
+    display: flex;
+  }
+  
+  .testimonies:before,
+  .testimonies:after {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    content: "";
+    z-index: 2;
+  }
+  
+  .testimonies:before {
+    left: 0;
+    background: linear-gradient(to left, rgba(25, 25, 25, 0), var(--background-color));
+  }
+  
+  .testimonies:after {
+    right: 0;
+    background: linear-gradient(to right, rgba(25, 25, 25, 0), var(--background-color));
+  }
+  
+  .testimonies:hover .testimony-slide {
+    animation-play-state: paused;
+  }
+  
+  .testimony-slide {
+    display: flex;
+    animation: slide 35s  infinite linear;
+    height: 100%;
+  }
+
+  keyframes slide {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .testimony-slide li {
+      height: 200px;
+      width: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      margin: 0 40px;
+      border: 1px solid var(--highlight) ;
+      color: var(--text);
+      padding: 0 1em;
+      /* overflow: hidden; */
+  }
+  
+  .testimony-card  {
+    max-width: 100%;
+    word-wrap: break-word; 
+    white-space: normal;
+  }
+
+
+
 /* Contact section */
 
-label,
+#contact-form {
+    margin: 0 auto;
+    max-width: 400px;
+    /* border: 1px solid green; */
+    padding: 1rem;
+    text-align: center;
+    color: var(--text);
+}
+
+form > * + * {
+    margin-top: 1.5rem;
+  }
+
+  label  {
+      display: none;
+  }
+
+::placeholder {
+    color: var(--text);
+}
+
+ input {
+    height: 2rem;
+}
+
+textarea {
+    height: 7rem;
+}
+
+
 input,
-button,
 textarea {
   display: block;
   font: inherit;
-  color: inherit;
-}
-
-input,
-textarea,
-fieldset,
-button {
+  background-color: var(--background-color);
+  border: 1px solid var(--highlight);
   width: 100%;
-  border: 1px solid var(--text-color);
 }
 
-textarea {
-  resize: vertical;
+
+fieldset {
+    max-width: 100%;
+    background-color: var(--background-color);
+    border: 1px solid var(--highlight);
+    display: flex;
+    padding: 1.5rem;
+    align-items: center;
 }
+
+fieldset label {
+    display: inline-block;
+}
+
+legend {
+    font-size: 1.2rem;
+    border: 1px solid var(--highlight);
+    padding: .3rem;
+}
+
+input[type="radio"] {
+    height: .9rem;
+}
+
+form button {
+    margin: 1rem auto;
+    border: none;
+    background-color: var(--section-bg-color);
+    color: var(--text);
+    font-size: 1.2rem;
+    cursor: pointer;
+
+     
+   }
+
+
+
+
+
+
 
 
 /* Footer section */
