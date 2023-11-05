@@ -10,14 +10,67 @@ a {
 }
 
 body {
+    box-sizing: border-box;
     background-color: var(--background-color);
     margin: 0;
     padding: 0;
 }
 
-/* Navigation bar section */
+/* Section styles*/
+
+section {
+    margin: 0 auto;
+    max-width: 100%;
+    min-height: 100vh;
+    /* border: 1px solid red; */
+    padding: 1rem 0 ;
+}
+
+#about, #team, #contact {
+    background-color: var(--section-bg-color);
+}
+
+.section-title {
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    color: var(--text-color);
+    /* padding: .5rem; */
+}
+
+.section-content {
+    max-width: 80%;
+    margin: 0 auto;
+}
+
 
 /* Header section */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--section-bg-color);
+    padding: 0 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+}
+
+
+/* Navigation bar section */
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+.navbar a {
+    padding: 0 1rem;
+    text-decoration: none;
+}
 
 /* About section */
 
@@ -25,8 +78,85 @@ body {
 
 /* Team section */
 
+#team ul {
+    list-style: none;
+    padding: 0;
+  }
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    gap: 10px;
+  }
+
+
+
 /* Testimonials section */
+
+.card{
+    width: 290px;
+    height: 290px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid var(--text-color);
+    background-color: var(--background-color);
+    color: rgb(230, 230, 230);
+    /* overflow: */
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px; */
+}
+
+.card img{
+    width: 40%;
+    height: auto;
+    border-radius: 50%;
+    /* margin: 5px; */
+}
+
+.card .details{
+    /* margin: 10px; */
+}
+
+.card .details h2{
+    /* border: 1px solid pink; */
+}
+
+.card .details p{
+
+    /* border: 1px solid orange; */
+}
 
 /* Contact section */
 
+label,
+input,
+button,
+textarea {
+  display: block;
+  font: inherit;
+  color: inherit;
+}
+
+input,
+textarea,
+fieldset,
+button {
+  width: 100%;
+  border: 1px solid var(--text-color);
+}
+
+textarea {
+  resize: vertical;
+}
+
+
 /* Footer section */
+
+footer {
+    text-align: center;
+    align-items: center;
+    border: 1px solid green;
+    padding: 1rem;
+}
