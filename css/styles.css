@@ -22,10 +22,12 @@ body {
 section {
     margin: 0 auto;
     max-width: 100%;
+    padding: 1rem;
+
+}
+
+#hero, #team, #contact {
     min-height: 100vh;
-    /* border: 1px solid red; */
-    /* padding: 1rem 0 ; */
-    position: relative;
 }
 
 #about, #team, #contact {
@@ -76,6 +78,22 @@ header {
 
 /* About section */
 
+#about-content {
+    display: flex;
+    justify-content:center;
+    gap: 1rem; 
+    padding: 1rem;
+
+}
+
+#about-content img {
+  max-width: 20%;
+}
+
+#about-content p {
+    max-width: 500px;
+}
+
 /* Services section */
 
 /* Team section */
@@ -88,7 +106,9 @@ header {
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
-    gap: 10px;
+    gap: 30px;
+    justify-content: center;
+
   }
 
 
@@ -106,14 +126,14 @@ header {
     border: 1px solid var(--highlight);
     background-color: var(--background-color);
     color: var(--text);
-    /* overflow: */
-    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px; */
+    margin: 0 auto;
 }
 
 .card img{
     width: 40%;
     height: auto;
     border-radius: 50%;
+    /* border: 1px solid red */
     /* margin: 5px; */
 }
 
@@ -140,7 +160,7 @@ header {
     white-space: nowrap;
     position: relative;
     display: flex;
-  }
+    }
   
   .testimonies:before,
   .testimonies:after {
@@ -150,38 +170,38 @@ header {
     height: 100%;
     content: "";
     z-index: 2;
-  }
+    }
   
   .testimonies:before {
     left: 0;
     background: linear-gradient(to left, rgba(25, 25, 25, 0), var(--background-color));
-  }
+    }
   
   .testimonies:after {
     right: 0;
     background: linear-gradient(to right, rgba(25, 25, 25, 0), var(--background-color));
-  }
+    }
   
-  .testimonies:hover .testimony-slide {
+  .testimonies:hover .testimonial-slide {
     animation-play-state: paused;
-  }
+    }
   
-  .testimony-slide {
+  .testimonial-slide {
     display: flex;
     animation: slide 35s  infinite linear;
     height: 100%;
-  }
+    }
 
-  keyframes slide {
+  @keyframes slide {
     from {
       transform: translateX(0);
     }
     to {
       transform: translateX(-100%);
     }
-  }
+     }
   
-  .testimony-slide li {
+  .testimonial-slide li {
       height: 200px;
       width: 400px;
       display: flex;
@@ -195,13 +215,13 @@ header {
       color: var(--text);
       padding: 0 1em;
       /* overflow: hidden; */
-  }
+      }
   
-  .testimony-card  {
+  .testimonial-card  {
     max-width: 100%;
     word-wrap: break-word; 
     white-space: normal;
-  }
+    }
 
 
 
@@ -214,27 +234,27 @@ header {
     padding: 1rem;
     text-align: center;
     color: var(--text);
-}
+    }
 
 form > * + * {
     margin-top: 1.5rem;
-  }
+    }
 
   label  {
       display: none;
-  }
+    }
 
 ::placeholder {
     color: var(--text);
-}
+    }
 
  input {
     height: 2rem;
-}
+    }
 
 textarea {
     height: 7rem;
-}
+    }
 
 
 input,
@@ -244,7 +264,8 @@ textarea {
   background-color: var(--background-color);
   border: 1px solid var(--highlight);
   width: 100%;
-}
+  resize: none;
+  }
 
 
 fieldset {
@@ -253,22 +274,22 @@ fieldset {
     border: 1px solid var(--highlight);
     display: flex;
     padding: 1.5rem;
-    align-items: center;
-}
+    align-items: center; 
+    }
 
 fieldset label {
     display: inline-block;
-}
+    }
 
 legend {
     font-size: 1.2rem;
     border: 1px solid var(--highlight);
     padding: .3rem;
-}
+    }
 
 input[type="radio"] {
     height: .9rem;
-}
+    }
 
 form button {
     margin: 1rem auto;
@@ -276,16 +297,8 @@ form button {
     background-color: var(--section-bg-color);
     color: var(--text);
     font-size: 1.2rem;
-    cursor: pointer;
-
-     
+    cursor: pointer;  
    }
-
-
-
-
-
-
 
 
 /* Footer section */
