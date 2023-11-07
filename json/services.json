@@ -1,0 +1,46 @@
+[
+    {
+        "name": "Anime Series Production",
+        "shortName": "ASP",
+        "description": [
+            "Anime production companies handle the entire process of creating anime series. This includes brainstorming and developing original concepts or adapting existing stories into anime format. They manage the scripting phase, where writers craft compelling narratives and dialogues. The company oversees storyboarding, a crucial step where visual representations of scenes are designed to outline the animation sequence. Animators bring these storyboards to life through keyframe animation, capturing the essential movements and expressions of the characters. Post-production services, such as editing and adding special effects, ensure the final product meets the desired quality standards."
+        ],
+        "image": "https://i.pinimg.com/736x/5e/8d/fc/5e8dfc7210d98ff44bd04a2804875562.jpg"
+    },
+
+    {
+        "name": "Anime Movie Production",
+        "shortName": "AMP",
+        "description": [
+            "Anime production companies specialize in producing full-length animated movies. From pre-production planning, which involves conceptualizing the storyline and characters, to the animation process, these companies create visually stunning and emotionally engaging movies. Special attention is given to animation techniques, special effects, and editing to deliver a cinematic experience. Whether the movie is intended for theatrical release or streaming platforms, the production company ensures it captivates the audience."
+        ],
+        "image": "https://lens-storage.storage.googleapis.com/previewimage/412af3ce-1613-488d-9b23-9078f2d46fee_360_640"
+    },
+
+    {
+        "name": "Character Design and Development",
+        "shortName": "CDD",
+        "description": [
+            "Anime production companies employ skilled artists who specialize in character design. These artists create unique and visually appealing characters tailored to fit the specific anime series or movie. Character development involves defining their personalities, backgrounds, and relationships within the story. Consistency in character design is crucial to maintain the audience's connection with the characters throughout the series."
+        ],
+        "image": "https://static.hidive.com/welcome/custom/q4-2023/Exclusives/RCR_01_300x450.jpg"
+    },
+
+    {
+        "name": "Storyboarding and Concept Art",
+        "shortName": "SCA",
+        "description": [
+            "Storyboarding is an essential phase where scenes are visually planned, ensuring a coherent flow of events. Artists create detailed storyboards that serve as a blueprint for animators. Additionally, concept art is developed to establish the visual style of the anime, including backgrounds, environments, and key visual elements. These artistic representations provide a clear direction for animators and contribute significantly to the overall aesthetics of the anime."
+        ],
+        "image": "https://img1.hulu.com/user/v3/artwork/48a572a7-0c40-49f5-ab39-2ce32c237098?base_image_bucket_name=image_manager&base_image=4fb6b936-70b4-4bec-9141-246fe4d50468&size=458x687&format=jpeg"
+    },
+
+    {
+        "name": "Animation Services",
+        "shortName": "AS",
+        "description": [
+            "Anime production companies employ a team of skilled animators who bring the characters and scenes to life. Keyframe animators focus on drawing the main frames, capturing the essence of character movements and expressions. Inbetween animators fill in the frames between keyframes, ensuring smooth and fluid animation. Background artists create intricate and immersive settings, adding depth to the overall visual experience. Special effects animators add dynamic elements such as magic, explosions, and action sequences, enhancing the animation's excitement."
+        ],
+        "image": "https://images.mein-mmo.de/medien/2023/10/Anime-Frieren-Elf-titel-title-small.jpg"
+    }
+]
