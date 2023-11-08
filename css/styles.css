@@ -152,7 +152,7 @@ header img:hover{
     top: 30rem;
     padding: 0.5rem 1rem 0.5rem 1rem;
     border: 1px solid var(--highlight);
-    font-size: 8vh;
+    font-size: 6vh;
 }
 
 /* About section */
@@ -217,7 +217,7 @@ header img:hover{
 .services-nav-button {
     background-color: var(--section-bg-color);
     color: var(--text);
-    padding: 0.5rem 2rem 0.5rem 2rem;
+    padding: 0.5rem 2rem 0.5rem 2rem; /* This parameter is changed in media queries */
     border: none;
     font-size: 1.2rem;
     text-decoration: none;
@@ -273,7 +273,7 @@ header img:hover{
 #team ul {
     list-style: none;
     padding: 0;
-  }
+}
 
 .grid {
     display: grid;
@@ -281,11 +281,7 @@ header img:hover{
     gap: 30px;
     justify-content: center;
 
-  }
-
-
-
-
+}
 
 .card{
     width: 290px;
@@ -308,93 +304,76 @@ header img:hover{
     border: 1px solid var(--highlight);
 }
 
-.card .details{
-    /* margin: 10px; */
-}
-
-.card .details h2{
-    /* border: 1px solid pink; */
-}
-
-.card .details p{
-
-    /* border: 1px solid orange; */
-}
-
-
 /* Testimonials section */
   
-  .testimonies {
+.testimonies {
     overflow: hidden;
     padding: 60px 0;
     background: var(--background-color);
     white-space: nowrap;
     position: relative;
     display: flex;
-    }
+}
   
-  .testimonies:before,
-  .testimonies:after {
+.testimonies:before, .testimonies:after {
     position: absolute;
     top: 0;
     width: 250px;
     height: 100%;
     content: "";
     z-index: 2;
-    }
+}
   
-  .testimonies:before {
+.testimonies:before {
     left: 0;
     background: linear-gradient(to left, rgba(25, 25, 25, 0), var(--background-color));
-    }
+}
   
-  .testimonies:after {
+.testimonies:after {
     right: 0;
     background: linear-gradient(to right, rgba(25, 25, 25, 0), var(--background-color));
-    }
+}
   
-  .testimonies:hover .testimonial-slide {
+.testimonies:hover .testimonial-slide {
     animation-play-state: paused;
-    }
+}
   
-  .testimonial-slide {
+.testimonial-slide {
     display: flex;
     animation: slide 35s  infinite linear;
     height: 100%;
-    }
+}
 
-  @keyframes slide {
+    @keyframes slide {
     from {
-      transform: translateX(0);
+        transform: translateX(0);
     }
     to {
-      transform: translateX(-100%);
+        transform: translateX(-100%);
     }
-     }
+}
   
-  .testimonial-slide li {
-      height: 200px;
-      width: 400px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-      margin: 0 40px;
-      border: 1px solid var(--highlight) ;
-      color: var(--text);
-      padding: 0 1em;
-      /* overflow: hidden; */
-      }
+.testimonial-slide li {
+    height: 200px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    margin: 0 40px;
+    border: 1px solid var(--highlight) ;
+    color: var(--text);
+    padding: 0 1em;
+    /* overflow: hidden; */
+}
   
-  .testimonial-card  {
+.testimonial-card  {
     max-width: 100%;
     word-wrap: break-word; 
     white-space: normal;
-    }
-
-
+}
 
 /* Contact section */
 
@@ -405,38 +384,36 @@ header img:hover{
     padding: 1rem;
     text-align: center;
     color: var(--text);
-    }
+}
 
 form > * + * {
     margin-top: 1.5rem;
-    }
+}
 
-  label  {
-      display: none;
-    }
+label  {
+    display: none;
+}
 
 ::placeholder {
     color: var(--text);
-    }
+}
 
- input {
+input {
     height: 2rem;
-    }
+}
 
 textarea {
     height: 7rem;
-    }
+}
 
-
-input,
-textarea {
-  display: block;
-  font: inherit;
-  background-color: var(--background-color);
-  border: 1px solid var(--highlight);
-  width: 100%;
-  resize: none;
-  }
+input, textarea {
+    display: block;
+    font: inherit;
+    background-color: var(--background-color);
+    border: 1px solid var(--highlight);
+    width: 100%;
+    resize: none;
+}
 
 
 fieldset {
@@ -446,21 +423,21 @@ fieldset {
     display: flex;
     padding: 1.5rem;
     align-items: center; 
-    }
+}
 
 fieldset label {
     display: inline-block;
-    }
+}
 
 legend {
     font-size: 1.2rem;
     border: 1px solid var(--highlight);
     padding: .3rem;
-    }
+}
 
 input[type="radio"] {
     height: .9rem;
-    }
+}
 
 form button {
     margin: 1rem auto;
@@ -469,8 +446,7 @@ form button {
     color: var(--text);
     font-size: 1.2rem;
     cursor: pointer;  
-   }
-
+}
 
 /* Footer section */
 
@@ -489,6 +465,8 @@ footer {
 }
 
 .arrow-button {
+    position: absolute;
+    right: 2rem;
     background-color: var(--background-color);
     width: 4rem;
     height: 4rem;
@@ -497,4 +475,65 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/* Media query for screens 768 pixels wide and smaller */
+@media screen and (max-width: 768px) {
+
+    .socials-container {
+        right: 0.5rem;
+        top: 15vh;
+        z-index: 101;
+    }
+    
+    .socials-button {
+        width: 3rem;
+        height: 3rem;
+        margin: 0.5rem;
+    }
+
+    .hero-background img{
+        max-height: 100vh;
+    }
+
+    .hero-background h1{
+        font-size: 3vh;
+    }
+
+    #about-content {
+        flex-wrap: wrap;
+    }
+
+    .bullet-point-list {
+        margin: 0;
+        padding: 0;
+    }
+
+    .services-nav-button {
+        padding: 0.5rem;
+    }
+
+    .services-contect {
+        max-height: 100%;
+    }
+    
+    .service {
+        flex-wrap: wrap;
+    }
+
+    .service {
+        justify-content: center;
+    }
+
+    .arrow-button {
+        position: inherit;
+        width: 3rem;
+        height: 3rem;
+        margin: 0.5rem;
+    }
+
+    .arrow-button img {
+        width: 25px;
+        height: 30px;
+    }
 }
