@@ -1,0 +1,46 @@
+[
+    {
+        "name": "Edgaras",
+        "position": "Character Designer",
+        "description": [
+            "Designs the appearance, costumes, and personalities of the anime characters. Ensures consistency in character design throughout the series."
+        ],
+        "image": "https://img.freepik.com/premium-photo/anime-male-avatar_950633-1014.jpg?size=338&ext=jpg&ga=GA1.1.1826414947.1699142400&semt=ais"
+    },
+    
+    {
+        "name": "Chibs",
+        "position": "Director",
+        "description": [
+            "Leads the creative vision of the anime project. Guides animators, writers, and artists to ensure consistency in storytelling and visual style."
+        ],
+        "image": "https://avatarfiles.alphacoders.com/279/279229.jpg"
+    },
+    
+    {
+        "name": "Maya",
+        "position": "Storyboard Artist",
+        "description": [
+            "Creates a visual representation of the script, outlining scenes, camera angles, and character movements. Acts as a blueprint for animators and directors during production."
+        ],
+        "image": "https://pbs.twimg.com/profile_images/1131624264405327873/1YpVVtxD_400x400.jpg"
+    },
+    
+    {
+        "name": "Sarah",
+        "position": "Animator",
+        "description": [
+            "Brings characters and scenes to life through movement and action. Animates keyframes and in-between frames to create smooth motion sequences."
+        ],
+        "image": "https://i.pinimg.com/474x/e7/41/85/e74185538462b372d6e62791b399138f.jpg"
+    },
+    
+    {
+        "name": "Animo",
+        "position": "Voice Actress",
+        "description": [
+            "Provides voices for anime characters, bringing them to life through dialogue and emotion. Records lines based on the script and director's instructions."
+        ],
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHTGglA4e5ZpogGvOnV3fSkleKxnFwUP8R5w&usqp=CAU"
+    }
+]
