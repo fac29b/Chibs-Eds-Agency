@@ -49,6 +49,8 @@ document.addEventListener('DOMContentLoaded', function() {
 // Services/Buttons arrays
 let servicesArr;
 let buttonsArr;
+let serviceNameArr;
+let servicesData;
 // Call the fetchServices function to populate service data when the page loads
 document.addEventListener('DOMContentLoaded', () => {
     fetchServices(); // Fetches the data from json file
@@ -60,27 +62,18 @@ function fetchServices() {
     fetch('./json/services.json')
         .then(response => response.json())
         .then(data => {
+            servicesData = data;
             // Stores classes in variables they will be used to insert html code in
             const servicesNav = document.querySelector('.services-nav');
             const servicesContent = document.querySelector('.services-contect');
             for (let i = 0; i < data.length; i++) {
-                servicesContent.insertAdjacentHTML('beforeend', '<div class="service ' + (i === 0 ? 'active' : '') + '"><img src=" ' + data[i].image + '" alt=""><div class="service-information"><h2></h2><p></p></div></div>');
-                servicesNav.insertAdjacentHTML('beforeend', '<button class="services-nav-button  ' + (i === 0 ? 'active-button"' : '') + ' aria-label="' + data[i].name + '" role="button" onclick="showService(' + i + ')">' + data[i].shortName + '</button>');
+                servicesContent.insertAdjacentHTML('beforeend', '<div class="service ' + (i === 0 ? 'active' : '') + '"><img src=" ' + data[i].image + '" alt=""><div class="service-information"><h2>' + data[i].name + '</h2><p>' + data[i].description + '</p></div></div>');
+                servicesNav.insertAdjacentHTML('beforeend', '<button class="services-nav-button ' + (i === 0 ? 'active-button"' : '') + ' aria-label="' + data[i].name + '" role="button" onclick="showService(' + i + ')"><a>' + (i === 0 ? data[i].name : data[i].shortName) + '</a></button>');
             }
 
             servicesArr = document.querySelectorAll('.service');
             buttonsArr = document.querySelectorAll('.services-nav button');
-            const services = document.querySelectorAll('.service');
-            services.forEach((service, index) => {
-                const serviceName = data[index].name;
-                const serviceDescription = data[index].description;
-
-                const serviceNameElement = service.querySelector('h2');
-                const serviceDescriptionElement = service.querySelector('p');
-
-                serviceNameElement.textContent = serviceName;
-                serviceDescriptionElement.textContent = serviceDescription;
-            });
+            serviceNameArr = document.querySelectorAll('.services-nav button a');
         })
         .catch(error => console.error('Error fetching data:', error));
 }
@@ -91,7 +84,9 @@ let interval;
 function showService(index) {
     servicesArr[currentIndex].classList.remove('active');
     buttonsArr[currentIndex].classList.remove('active-button');
+    serviceNameArr[currentIndex].textContent = servicesData[currentIndex].shortName;
     currentIndex = index >= 0 ? index % servicesArr.length : servicesArr.length - 1;
+    serviceNameArr[currentIndex].textContent = servicesData[currentIndex].name;
     servicesArr[currentIndex].classList.add('active');
     buttonsArr[currentIndex].classList.add('active-button');
 }
