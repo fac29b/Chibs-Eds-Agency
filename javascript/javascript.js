@@ -1,14 +1,24 @@
 // Smooth scrolling when pressed on navigation buttons
 document.addEventListener('DOMContentLoaded', function () {
     document.body.addEventListener('click', function (e) {
-        if (e.target.tagName === 'A' && e.target.getAttribute('href').startsWith('#')) {
+        let targetElement = e.target;
+
+        // Traverse up the DOM tree to find the parent <a> element
+        while (targetElement && targetElement.tagName !== 'A') {
+            targetElement = targetElement.parentElement;
+        }
+
+        if (targetElement && targetElement.getAttribute('href') && targetElement.getAttribute('href').startsWith('#')) {
             e.preventDefault();
-            const targetId = e.target.getAttribute('href');
-            const targetPosition = document.querySelector(targetId).offsetTop;
-            window.scroll({
-                top: targetPosition,
-                behavior: 'smooth'
-            });
+            const targetId = targetElement.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            if (targetSection) {
+                const targetPosition = targetSection.offsetTop;
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
         }
     });
 });
@@ -43,6 +53,7 @@ let buttonsArr;
 document.addEventListener('DOMContentLoaded', () => {
     fetchServices(); // Fetches the data from json file
     startSlideshow(); // Start the slideshow after fetching the data
+    DisplayTeamCards();
 });
 // Gets all the information for services from json file and adds it
 function fetchServices() {
@@ -54,7 +65,7 @@ function fetchServices() {
             const servicesContent = document.querySelector('.services-contect');
             for (let i = 0; i < data.length; i++) {
                 servicesContent.insertAdjacentHTML('beforeend', '<div class="service ' + (i === 0 ? 'active' : '') + '"><img src=" ' + data[i].image + '" alt=""><div class="service-information"><h2></h2><p></p></div></div>');
-                servicesNav.insertAdjacentHTML('beforeend', '<button class="services-nav-button  ' + (i === 0 ? 'active-button"' : '') + ' aria-label="Service 01" role="button" onclick="showService(' + i + ')">' + data[i].shortName + '</button>');
+                servicesNav.insertAdjacentHTML('beforeend', '<button class="services-nav-button  ' + (i === 0 ? 'active-button"' : '') + ' aria-label="' + data[i].name + '" role="button" onclick="showService(' + i + ')">' + data[i].shortName + '</button>');
             }
 
             servicesArr = document.querySelectorAll('.service');
@@ -110,3 +121,17 @@ document.querySelector('.services-contect').addEventListener('mouseover', () => 
 document.querySelector('.services-contect').addEventListener('mouseout', () => {
     resumeSlideshow();
 });
+
+// Team section
+function DisplayTeamCards(){
+    fetch('./json/team.json')
+        .then(response => response.json())
+        .then(data => {
+            // Stores class in variable they will be used to insert html code in
+            const grid = document.querySelector('.grid');
+            for (let i = 0; i < data.length; i++) {
+                grid.insertAdjacentHTML('beforeend', '<li class="card"><img src="' + data[i].image + '" alt="Image"><div class="details"><h2>' + data[i].name + '</h2><h3>' + data[i].position + '</h3><p id="info">' + data[i].description + '</p></div></li>');
+            }
+        })
+        .catch(error => console.error('Error fetching data:', error));
+};

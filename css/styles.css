@@ -63,6 +63,27 @@ section {
     margin: 0 auto;
 }
 
+/* Floating socials */
+
+.socials-container {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    right: 2rem;
+    top: 30vh;
+    z-index: 101;
+}
+
+.socials-button {
+    background-color: var(--background-color);
+    width: 4rem;
+    height: 4rem;
+    margin: 0.5rem;
+    border: 1px solid var(--highlight);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 /* Header section */
 
@@ -80,7 +101,6 @@ header {
 }
 
 header img{
-    max-height: 3rem;
     padding: 0.5rem;
     transition: filter 0.3s ease;
 }
@@ -132,7 +152,7 @@ header img:hover{
     top: 30rem;
     padding: 0.5rem 1rem 0.5rem 1rem;
     border: 1px solid var(--highlight);
-    font-size: 5rem;
+    font-size: 8vh;
 }
 
 /* About section */
@@ -282,11 +302,10 @@ header img:hover{
 }
 
 .card img{
-    width: 40%;
-    height: auto;
+    max-width: 100px;
+    max-height: 100px;
     border-radius: 50%;
-    /* border: 1px solid red */
-    /* margin: 5px; */
+    border: 1px solid var(--highlight);
 }
 
 .card .details{
@@ -457,7 +476,25 @@ form button {
 
 footer {
     color: var(--text);
-    text-align: center;
-    align-items: center;
+    display: flex;
+    justify-content: center;
     padding: 1rem;
+}
+
+.footer-container {
+    width: 1240px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.arrow-button {
+    background-color: var(--background-color);
+    width: 4rem;
+    height: 4rem;
+    margin: 0.5rem;
+    border: 1px solid var(--highlight);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
