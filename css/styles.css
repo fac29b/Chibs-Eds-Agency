@@ -4,6 +4,8 @@
     --section-bg-color: rgb(36, 36, 36);
     --highlight: rgb(120, 63, 197);
     --text: rgb(230, 230, 230);
+    --success-color: #2ecc71;
+    --error-color: #e74c3c;
 }
 
 a {
@@ -43,7 +45,7 @@ section {
 }
 
 #hero, #team, #contact {
-    /* min-height: 100vh;*/
+    /* background-color: var(--background-color);*/
 }
 
 #about, #team, #contact {
@@ -238,6 +240,7 @@ header img:hover{
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    po
 }
 
 .hero-background img{
@@ -496,17 +499,24 @@ form > * + * {
     margin-top: 1.5rem;
     }
 
+    .form-control {
+  padding-bottom: 20px;
+  position: relative;
+}
+
   label  {
       display: none;
     }
 
 ::placeholder {
-    color: var(--text);
+    color:inherit
     }
 
  input {
     height: 2rem;
     }
+
+
 
 textarea {
     height: 7rem;
@@ -517,10 +527,18 @@ input,
 textarea {
   display: block;
   font: inherit;
+  color: var(--text);
   background-color: var(--background-color);
   border: 1px solid var(--highlight);
   width: 100%;
   resize: none;
+  }
+
+input:focus, 
+textarea:focus {
+    outline: 0;
+    
+    /* background-color: ; */
   }
 
 
@@ -550,11 +568,37 @@ input[type="radio"] {
 form button {
     margin: 1rem auto;
     border: none;
-    background-color: var(--section-bg-color);
+    background-color: var(--background-color);
     color: var(--text);
     font-size: 1.2rem;
     cursor: pointer;  
+    /* padding: 10px;
+    margin-top: 20px;
+    width: 100%; */
    }
+
+   /* styles for validation */
+
+   .form-control.success input {
+    border-color: var(--success-color);
+  }
+  
+  .form-control.error input {
+    border-color: var(--error-color);
+  }
+  
+  .form-control small {
+    color: var(--error-color);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    visibility: hidden;
+  }
+  
+  .form-control.error small {
+    visibility: visible;
+  }
+  
 
 
 /* Footer section */
