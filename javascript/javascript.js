@@ -32,15 +32,20 @@ const barEL = document.querySelectorAll(".bar");
 hamburgerEl.addEventListener("click", () => {
     hamburgerEl.classList.toggle("active");
     navMenuEl.classList.toggle("active");
-    logoEl.classList.toggle("active");
 })
 
 
 function closeMenu() {
-  hamburgerEl.classList.toggle("active");
-  navMenuEl.classList.toggle("active");
-  logoEl.classList.toggle("active");
+
+    if (hamburgerEl.classList.contains('active')) {
+        hamburgerEl.classList.remove('active');
+    } 
+
+    if (navMenuEl.classList.contains('active')) {
+        navMenuEl.classList.remove('active');
+    }
 }
+
 
 // About section
 
@@ -238,4 +243,10 @@ form.addEventListener('submit', function(e) {
   checkRequired([company]);
   checkLength(formName, 3, 15);
   checkEmail(email);
+
+
+//Make sure there are no errors before submitting 
+  if (document.querySelectorAll('.form-control.error').length === 0) {
+    form.submit();;
+  }
 });
