@@ -1,6 +1,6 @@
 /*Import font*/
 
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap');
 
 /* Reusable colors */
 :root {
@@ -114,7 +114,6 @@ header img:hover{
     filter: invert(100%);
 }
 
-
 /* Navigation bar section */
 
 .navbar {
@@ -137,7 +136,6 @@ header img:hover{
     color: var(--highlight);
 }
 
-
 .nav-menu {
     display: flex;
     justify-content: center;
@@ -157,7 +155,6 @@ header img:hover{
 .nav-menu a:hover {
     color: rgb(120, 63, 197);
 }
-
 
 .hamburger {
     display: none; 
@@ -182,6 +179,7 @@ header img:hover{
 .hamburger.active .bar:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
 }
+
 .hamburger.active .bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
 }
@@ -196,8 +194,6 @@ header img:hover{
         left: 45%;
 
     }
-
-
 
     .nav-menu {
         position: fixed;
@@ -214,7 +210,6 @@ header img:hover{
         z-index: -1;
         
     }
-
     
     .nav-menu a {
         padding: 0 1rem;
@@ -229,9 +224,7 @@ header img:hover{
     .nav-menu.active {
         top: 0%;
     }
-    
-    
-  }
+}
 
 /* Hero section */
 
@@ -383,8 +376,7 @@ header img:hover{
     gap: 30px;
     justify-content: center;
 
-  }
-
+}
 
 .card{
     width: 290px;
@@ -407,9 +399,6 @@ header img:hover{
     border: 1px solid var(--highlight);
 }
 
-
-
-
 /* Testimonials section */
   
 .testimonies {
@@ -421,32 +410,31 @@ header img:hover{
     display: flex;
 }
   
+.testimonies:before,
+.testimonies:after {
+    position: absolute;
+    top: 0;
+    width: 10%; 
+    height: 100%;
+    content: "";
+    z-index: 2;
+}
+
+/* media queries to adjust the fade effect width at specific screen sizes */
+@media screen and (max-width: 768px) {
     .testimonies:before,
     .testimonies:after {
-        position: absolute;
-        top: 0;
-        width: 10%; 
-        height: 100%;
-        content: "";
-        z-index: 2;
+        width: 5%; 
     }
-    
-    /* media queries to adjust the fade effect width at specific screen sizes   */
-    @media screen and (max-width: 768px) {
-        .testimonies:before,
-        .testimonies:after {
-            width: 5%; 
-        }
+}
+
+@media screen and (max-width: 480px) {
+    .testimonies:before,
+    .testimonies:after {
+        width: 3%; 
     }
-    
-    @media screen and (max-width: 480px) {
-        .testimonies:before,
-        .testimonies:after {
-            width: 3%; 
-        }
-    }
-    
-  
+}
+
 .testimonies:before {
     left: 0;
     background: linear-gradient(to left, rgba(25, 25, 25, 0), var(--background-color));
@@ -466,8 +454,7 @@ header img:hover{
     animation: slide 35s  infinite linear;
     height: 100%;
 }
-
-    @keyframes slide {
+@keyframes slide {
     from {
         transform: translateX(0);
     }
@@ -476,32 +463,30 @@ header img:hover{
     }
 }
   
-  .testimonial-slide li {
-      height: 200px;
-      width: 400px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-      margin: 0 40px;
-      border: 1px solid var(--highlight) ;
-      color: var(--text);
-      padding: 0 1em;
-      }
+.testimonial-slide li {
+    height: 200px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    margin: 0 40px;
+    border: 1px solid var(--highlight) ;
+    color: var(--text);
+    padding: 0 1em;
+}
   
 .testimonial-card  {
     max-width: 100%;
     word-wrap: break-word; 
     white-space: normal;
-    }
+}
   
-    .testimonial-card cite {
-        color: var(--highlight);
-    }  
-
-
+.testimonial-card cite {
+    color: var(--highlight);
+}  
 
 /* Contact section */
 
@@ -517,29 +502,26 @@ form > * + * {
     margin-top: 1.5rem;
 }
 
-    .form-control {
-  padding-bottom: 20px;
-  position: relative;
+.form-control {
+    padding-bottom: 20px;
+    position: relative;
 }
 
-  label  {
-      display: none;
-    }
+label  {
+    display: none;
+}
 
 ::placeholder {
     color:inherit
-    }
+}
 
 input {
     height: 2rem;
 }
 
-
-
 textarea {
     height: 7rem;
 }
-
 
 input,
 textarea {
@@ -550,15 +532,12 @@ textarea {
   border: 1px solid var(--highlight);
   width: 100%;
   resize: none;
-  }
+}
 
 input:focus, 
 textarea:focus {
     outline: 0;
-    
-    /* background-color: ; */
-  }
-
+}
 
 fieldset {
     max-width: 100%;
@@ -589,35 +568,30 @@ form button {
     background-color: var(--background-color);
     color: var(--text);
     font-size: 1.2rem;
-    cursor: pointer;  
-    /* padding: 10px;
-    margin-top: 20px;
-    width: 100%; */
-   }
+    cursor: pointer;
+}
 
-   /* styles for validation */
+/* styles for validation */
 
-   .form-control.success input {
+.form-control.success input {
     border-color: var(--success-color);
-  }
+}
   
-  .form-control.error input {
+.form-control.error input {
     border-color: var(--error-color);
-  }
+}
   
-  .form-control small {
+.form-control small {
     color: var(--error-color);
     position: absolute;
     bottom: 0;
     left: 0;
     visibility: hidden;
-  }
+}
   
-  .form-control.error small {
+.form-control.error small {
     visibility: visible;
-  }
-  
-
+}
 
 /* Footer section */
 

@@ -54,7 +54,6 @@ document.addEventListener('DOMContentLoaded', function() {
   
     bulletItems.forEach(item => {
       const title = item.querySelector('.bullet-title');
-      const content = item.querySelector('.bullet-point-content');
   
       title.addEventListener('click', function() {
         // Close all other bullet points
