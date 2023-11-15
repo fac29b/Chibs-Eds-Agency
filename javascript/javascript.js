@@ -32,15 +32,20 @@ const barEL = document.querySelectorAll(".bar");
 hamburgerEl.addEventListener("click", () => {
     hamburgerEl.classList.toggle("active");
     navMenuEl.classList.toggle("active");
-    logoEl.classList.toggle("active");
 })
 
 
 function closeMenu() {
-  hamburgerEl.classList.toggle("active");
-  navMenuEl.classList.toggle("active");
-  logoEl.classList.toggle("active");
+
+    if (hamburgerEl.classList.contains('active')) {
+        hamburgerEl.classList.remove('active');
+    } 
+
+    if (navMenuEl.classList.contains('active')) {
+        navMenuEl.classList.remove('active');
+    }
 }
+
 
 // About section
 
@@ -150,3 +155,195 @@ function DisplayTeamCards(){
         })
         .catch(error => console.error('Error fetching data:', error));
 };
+
+//Contact Form 
+const form = document.getElementById('contact-form');
+const formName = document.getElementById('name');
+const email = document.getElementById('email');
+const company = document.getElementById('company-name');
+const password2 = document.getElementById('password2');
+
+// Show input error message
+function showError(input, message) {
+  const formControl = input.parentElement;
+  formControl.className = 'form-control error';
+  const small = formControl.querySelector('small');
+  small.innerText = message;
+}
+
+// Show success outline
+function showSuccess(input) {
+  const formControl = input.parentElement;
+  formControl.className = 'form-control success';
+}
+
+// Check email is valid
+function checkEmail(input) {
+  const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  if (re.test(input.value.trim())) {
+    showSuccess(input);
+  } else {
+    showError(input, 'Email is not valid');
+  }
+}
+
+// Check required fields
+function checkRequired(inputArr) {
+    inputArr.forEach(function (input) {
+      if (input.value.trim() === '') {
+        showError(input, getCustomErrorMessage(input));
+      } else {
+        showSuccess(input);
+      }
+    });
+  }
+  
+  // Error messages 
+  function getCustomErrorMessage(input) {
+    const customMessages = {
+      'company-name': 'Company name is required, if not applicable type N/A',
+    };
+  
+    return customMessages[input.id] || `${getFieldName(input)} is required`;
+  }
+  
+
+// Check input length
+function checkLength(input, min, max) {
+  if (input.value.length < min) {
+    showError(
+      input,
+      `${getFieldName(input)} must be at least ${min} characters`
+    );
+  } else if (input.value.length > max) {
+    showError(
+      input,
+      `${getFieldName(input)} must be less than ${max} characters`
+    );
+  } else {
+    showSuccess(input);
+  }
+}
+
+
+// Get fieldname
+function getFieldName(input) {
+  return input.id.charAt(0).toUpperCase() + input.id.slice(1);
+}
+
+// Event listeners
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  checkRequired([company]);
+  checkLength(formName, 3, 15);
+  checkEmail(email);
+
+
+//Make sure there are no errors before submitting 
+  if (document.querySelectorAll('.form-control.error').length === 0) {
+    form.submit();;
+  }
+});
+
+
+
+/////////////Testimonal JS 
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  var jsonData = {
+      "testimonials": [
+        {
+          "quote": "Exceptional service! I couldn't be happier with the results.",
+          "author": "Grace Thompson"
+        },
+        {
+          "quote": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "author": "Frank Williams"
+        },
+        {
+          "quote": "Highly professional team. They exceeded my expectations.",
+          "author": "Sophie Davis"
+        },
+        {
+          "quote": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          "author": "Oliver Turner"
+        },
+        {
+          "quote": "Outstanding work! The attention to detail is remarkable.",
+          "author": "Emma Wilson"
+        },
+        {
+          "quote": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+          "author": "Henry Miller"
+        },
+        {
+          "quote": "Fantastic experience from start to finish. Highly recommended!",
+          "author": "Lucy Roberts"
+        },
+        {
+          "quote": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.",
+          "author": "Liam Johnson"
+        },
+        {
+          "quote": "Great service! Quick and efficient. Will definitely use again.",
+          "author": "Ava Davis"
+        },
+        {
+          "quote": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+          "author": "Noah Wilson"
+        }
+      ]
+    };
+
+  // Get the testimonial list elements
+  var testimonialSlide1 = document.querySelector(".testimonial-slide:first-of-type");
+  var testimonialSlide2 = document.querySelector(".testimonial-slide:last-of-type");
+
+  // Function to create HTML for each testimonial
+  function createTestimonialHTML(testimonial) {
+    return `
+      <li>
+        <div class="testimonial-card">
+          <p>${testimonial.quote}</p>
+          <cite>${testimonial.author}</cite>
+        </div>
+      </li>
+    `;
+  }
+
+  // Insert testimonials into the HTML for the first list and second list
+  jsonData.testimonials.slice(0, 5).forEach(function (testimonial) {
+    testimonialSlide1.innerHTML += createTestimonialHTML(testimonial);
+  });
+
+  jsonData.testimonials.slice(5, 10).forEach(function (testimonial) {
+    testimonialSlide2.innerHTML += createTestimonialHTML(testimonial);
+  });
+
+  // Calculate total width based on the actual width of testimonials
+  var totalWidth1 = testimonialSlide1.offsetWidth * 2 + "px";
+  var totalWidth2 = testimonialSlide2.offsetWidth * 2 + "px";
+  testimonialSlide1.style.width = totalWidth1;
+  testimonialSlide2.style.width = totalWidth2;
+
+  // Function to reset the testimonial list positions
+  function resetTestimonialPositions() {
+    testimonialSlide1.style.transition = "none";
+    testimonialSlide1.style.transform = "translateX(0)";
+    testimonialSlide2.style.transition = "none";
+    testimonialSlide2.style.transform = "translateX(0)";
+    setTimeout(function () {
+      testimonialSlide1.style.transition = "transform 35s infinite linear";
+      testimonialSlide2.style.transition = "transform 35s infinite linear";
+    }, 50);
+  }
+
+  // Update testimonial positions when the animations complete
+  testimonialSlide1.addEventListener("transitionend", resetTestimonialPositions);
+  testimonialSlide2.addEventListener("transitionend", resetTestimonialPositions);
+
+  // Initial reset to handle the case when the page is loaded
+  resetTestimonialPositions();
+});
