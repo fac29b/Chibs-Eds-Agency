@@ -88,11 +88,12 @@ section {
 /* Header section */
 
 header {
+    min-height: 80px;
     position: sticky;
     top: 0;
     z-index: 100;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     background-color: var(--section-bg-color);
     padding: 0 1rem;
@@ -118,6 +119,7 @@ header img:hover{
     align-items: center;
     flex-grow: 1;
     flex-wrap: wrap;
+    background-color: inherit;
 }
 
 .navbar a {
@@ -130,6 +132,102 @@ header img:hover{
 .navbar a:hover {
     color: var(--highlight);
 }
+
+
+.nav-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    flex-wrap: wrap;
+
+}
+
+.nav-menu a {
+    padding: 0 1rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.nav-menu a:hover {
+    color: rgb(120, 63, 197);
+}
+
+
+.hamburger {
+    display: none; 
+    
+}
+
+.bar {
+    display: block;
+    width: 28.5px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: var(--highlight);
+    
+}
+
+.hamburger.active .bar:nth-child(2) /*SECOND/MIDDLE BAR */ {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+@media screen and (max-width:838px) {
+         
+    .hamburger {
+        display: block;
+        cursor: pointer;
+        z-index: 100;
+        position:relative;
+        left: 45%;
+
+    }
+
+
+
+    .nav-menu {
+        position: fixed;
+        height: 100vh;
+        left: -0%;
+        top: -100%;
+        gap: 0;
+        flex-direction: column;
+        justify-content: center;
+        background-color: inherit;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s; 
+        z-index: -1;
+        
+    }
+
+    
+    .nav-menu a {
+        padding: 0 1rem;
+        text-decoration: none;
+        transition: color 0.3s ease;
+        font-size: 1.2rem;
+        margin: 16px auto;
+        gap: 0;
+  
+    }
+
+    .nav-menu.active {
+        top: 0%;
+    }
+    
+    
+  }
 
 /* Hero section */
 
@@ -304,6 +402,9 @@ header img:hover{
     border: 1px solid var(--highlight);
 }
 
+
+
+
 /* Testimonials section */
   
 .testimonies {
@@ -353,21 +454,20 @@ header img:hover{
     }
 }
   
-.testimonial-slide li {
-    height: 200px;
-    width: 400px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    position: relative;
-    margin: 0 40px;
-    border: 1px solid var(--highlight) ;
-    color: var(--text);
-    padding: 0 1em;
-    /* overflow: hidden; */
-}
+  .testimonial-slide li {
+      height: 200px;
+      width: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      margin: 0 40px;
+      border: 1px solid var(--highlight) ;
+      color: var(--text);
+      padding: 0 1em;
+      }
   
 .testimonial-card  {
     max-width: 100%;
@@ -380,7 +480,6 @@ header img:hover{
 #contact-form {
     margin: 0 auto;
     max-width: 400px;
-    /* border: 1px solid green; */
     padding: 1rem;
     text-align: center;
     color: var(--text);

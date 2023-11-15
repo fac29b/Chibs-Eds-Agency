@@ -22,6 +22,26 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+// Hamburger Menu 
+
+const hamburgerEl = document.querySelector(".hamburger");
+const navMenuEl = document.querySelector(".nav-menu");
+const barEL = document.querySelectorAll(".bar");
+
+hamburgerEl.addEventListener("click", () => {
+    hamburgerEl.classList.toggle("active");
+    navMenuEl.classList.toggle("active");
+    logoEl.classList.toggle("active");
+})
+
+
+function closeMenu() {
+  hamburgerEl.classList.toggle("active");
+  navMenuEl.classList.toggle("active");
+  logoEl.classList.toggle("active");
+}
+
 // About section
 
 document.addEventListener('DOMContentLoaded', function() {
